@@ -48,7 +48,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Creates list of users with given input array
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="body">List of user object</param>
         /// <response code="0">successful operation</response>
         [HttpPost]
@@ -63,7 +63,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Creates list of users with given input array
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="body">List of user object</param>
         /// <response code="0">successful operation</response>
         [HttpPost]
@@ -94,7 +94,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Get user by user name
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="username">The name that needs to be fetched. Use user1 for testing. </param>
         /// <response code="200">successful operation</response>
         /// <response code="400">Invalid username supplied</response>
@@ -109,6 +109,8 @@ namespace IO.Swagger.Controllers
         public virtual IActionResult GetUserByName([FromRoute]string username)
         { 
             string exampleJson = null;
+            exampleJson = "<User>\n  <id>123456789</id>\n  <username>aeiou</username>\n  <firstName>aeiou</firstName>\n  <lastName>aeiou</lastName>\n  <email>aeiou</email>\n  <password>aeiou</password>\n  <phone>aeiou</phone>\n  <userStatus>123</userStatus>\n</User>";
+            exampleJson = "{\n  \"id\" : 0,\n  \"lastName\" : \"lastName\",\n  \"phone\" : \"phone\",\n  \"username\" : \"username\",\n  \"email\" : \"email\",\n  \"userStatus\" : 6,\n  \"firstName\" : \"firstName\",\n  \"password\" : \"password\"\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<User>(exampleJson)
@@ -119,7 +121,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Logs user into the system
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="username">The user name for login</param>
         /// <param name="password">The password for login in clear text</param>
         /// <response code="200">successful operation</response>
@@ -133,6 +135,8 @@ namespace IO.Swagger.Controllers
         public virtual IActionResult LoginUser([FromQuery]string username, [FromQuery]string password)
         { 
             string exampleJson = null;
+            exampleJson = "aeiou";
+            exampleJson = "\"\"";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<string>(exampleJson)
@@ -143,7 +147,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Logs out current logged in user session
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <response code="0">successful operation</response>
         [HttpGet]
         [Route("/v2/user/logout")]

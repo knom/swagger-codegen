@@ -33,7 +33,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Add a new pet to the store
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="body">Pet object that needs to be added to the store</param>
         /// <response code="405">Invalid input</response>
         [HttpPost]
@@ -48,7 +48,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Deletes a pet
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="petId">Pet id to delete</param>
         /// <param name="apiKey"></param>
         /// <response code="400">Invalid pet value</response>
@@ -77,6 +77,8 @@ namespace IO.Swagger.Controllers
         public virtual IActionResult FindPetsByStatus([FromQuery]List<string> status)
         { 
             string exampleJson = null;
+            exampleJson = "<Pet>\n  <id>123456789</id>\n  <name>doggie</name>\n  <photoUrls>\n    <photoUrls>aeiou</photoUrls>\n  </photoUrls>\n  <tags>\n  </tags>\n  <status>aeiou</status>\n</Pet>";
+            exampleJson = "[ {\n  \"tags\" : [ {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  }, {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  } ],\n  \"id\" : 0,\n  \"category\" : {\n    \"id\" : 6,\n    \"name\" : \"name\"\n  },\n  \"status\" : \"available\",\n  \"name\" : \"doggie\",\n  \"photoUrls\" : [ \"photoUrls\", \"photoUrls\" ]\n}, {\n  \"tags\" : [ {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  }, {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  } ],\n  \"id\" : 0,\n  \"category\" : {\n    \"id\" : 6,\n    \"name\" : \"name\"\n  },\n  \"status\" : \"available\",\n  \"name\" : \"doggie\",\n  \"photoUrls\" : [ \"photoUrls\", \"photoUrls\" ]\n} ]";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<Pet>>(exampleJson)
@@ -100,6 +102,8 @@ namespace IO.Swagger.Controllers
         public virtual IActionResult FindPetsByTags([FromQuery]List<string> tags)
         { 
             string exampleJson = null;
+            exampleJson = "<Pet>\n  <id>123456789</id>\n  <name>doggie</name>\n  <photoUrls>\n    <photoUrls>aeiou</photoUrls>\n  </photoUrls>\n  <tags>\n  </tags>\n  <status>aeiou</status>\n</Pet>";
+            exampleJson = "[ {\n  \"tags\" : [ {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  }, {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  } ],\n  \"id\" : 0,\n  \"category\" : {\n    \"id\" : 6,\n    \"name\" : \"name\"\n  },\n  \"status\" : \"available\",\n  \"name\" : \"doggie\",\n  \"photoUrls\" : [ \"photoUrls\", \"photoUrls\" ]\n}, {\n  \"tags\" : [ {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  }, {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  } ],\n  \"id\" : 0,\n  \"category\" : {\n    \"id\" : 6,\n    \"name\" : \"name\"\n  },\n  \"status\" : \"available\",\n  \"name\" : \"doggie\",\n  \"photoUrls\" : [ \"photoUrls\", \"photoUrls\" ]\n} ]";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<Pet>>(exampleJson)
@@ -125,6 +129,8 @@ namespace IO.Swagger.Controllers
         public virtual IActionResult GetPetById([FromRoute]long? petId)
         { 
             string exampleJson = null;
+            exampleJson = "<Pet>\n  <id>123456789</id>\n  <name>doggie</name>\n  <photoUrls>\n    <photoUrls>aeiou</photoUrls>\n  </photoUrls>\n  <tags>\n  </tags>\n  <status>aeiou</status>\n</Pet>";
+            exampleJson = "{\n  \"tags\" : [ {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  }, {\n    \"id\" : 1,\n    \"name\" : \"name\"\n  } ],\n  \"id\" : 0,\n  \"category\" : {\n    \"id\" : 6,\n    \"name\" : \"name\"\n  },\n  \"status\" : \"available\",\n  \"name\" : \"doggie\",\n  \"photoUrls\" : [ \"photoUrls\", \"photoUrls\" ]\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<Pet>(exampleJson)
@@ -135,7 +141,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Update an existing pet
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="body">Pet object that needs to be added to the store</param>
         /// <response code="400">Invalid ID supplied</response>
         /// <response code="404">Pet not found</response>
@@ -152,7 +158,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// Updates a pet in the store with form data
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="petId">ID of pet that needs to be updated</param>
         /// <param name="name">Updated name of the pet</param>
         /// <param name="status">Updated status of the pet</param>
@@ -169,7 +175,7 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// uploads an image
         /// </summary>
-        /// <remarks></remarks>
+        
         /// <param name="petId">ID of pet to update</param>
         /// <param name="additionalMetadata">Additional data to pass to server</param>
         /// <param name="file">file to upload</param>
@@ -182,6 +188,7 @@ namespace IO.Swagger.Controllers
         public virtual IActionResult UploadFile([FromRoute]long? petId, [FromForm]string additionalMetadata, [FromForm]System.IO.Stream file)
         { 
             string exampleJson = null;
+            exampleJson = "{\n  \"message\" : \"message\",\n  \"code\" : 0,\n  \"type\" : \"type\"\n}";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<ApiResponse>(exampleJson)
